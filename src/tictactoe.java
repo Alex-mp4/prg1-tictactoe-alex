@@ -2,24 +2,38 @@ import javax.swing.*;
 
 public class tictactoe {
     public static void main(String[] args) {
+        String size = JOptionPane.showInputDialog("Size:");
+        int sizeI = Integer.parseInt(size);
+        int sizeT = sizeI * sizeI;
 
-        String one = " ";
-        String two = " ";
-        String three = " ";
-        String four = " ";
-        String five = " ";
-        String six = " ";
-        String seven = " ";
-        String eight = " ";
-        String nine = " ";
+        String board = boardplan(sizeI);
+        char[] boardA = board.toCharArray();
 
-        String board = "| 1 | 2 | 3 |\n| 4 | 5 | 6 |\n| 7 | 8 | 9 |";
-        char[] boardC = board.toCharArray();
+        String spot = JOptionPane.showInputDialog(board + "\nWhat spot?");
+        int spotI = Integer.parseInt(spot);
 
-        while() {
-            String pick = JOptionPane.showInputDialog(board + "\nWhich spot will you pick?");
-            int pickI = Integer.parseInt(pick);
+        for(int l = 0; l < sizeT; l++) {
+            if(spotI < 100){
+            //checka ifall spot är samma som char[] och ta nog många siffror ifrån det beroende på antalet siffror
+            }
+            if(spotI > 100 && spotI < 1000){
+
+            }
         }
 
+    }
+    static String boardplan(int sizeI) {
+
+        String board = "";
+        int p = 0;
+
+        for(int i = 0; i < sizeI; i++) {
+            for(int o = 0; o < sizeI; o++) {
+                p++;
+                board += p + " ";
+            }
+            board += "\n";
+        }
+        return board;
     }
 }
