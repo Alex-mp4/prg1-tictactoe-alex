@@ -9,6 +9,8 @@ public class tictactoe {
         String board = boardplan(sizeI);
         char[] boardA = board.toCharArray();
 
+        int j = 3;
+
         String player1 = "X";
         String player2 = "O";
         char play1 = player1.charAt(0);
@@ -18,7 +20,6 @@ public class tictactoe {
             String spot = JOptionPane.showInputDialog(board + "\nWhat spot?");
             int spotI = Integer.parseInt(spot);
             char spotC = spot.charAt(0);
-            int j = 0;
             j = j + 1;
             int curTurnI = currentPlayer(j);
 
@@ -35,10 +36,11 @@ public class tictactoe {
                         }
                     }
                 }
-                //if (spotI > 10 && spotI < 100) {
+
+                //bif (spotI > 10 && spotI < 100) {
                     //checka ifall spot är samma som char[] och ta nog många siffror ifrån det beroende på antalet siffror
                 //}
-                //if (spotI > 100 && spotI < 1000) {
+                //bif (spotI > 100 && spotI < 1000) {
 
                 //}
                 else{
@@ -50,21 +52,18 @@ public class tictactoe {
     }
 
     private static int currentPlayer(int j) {
-        int c = 0;
+        int c;
 
-        if ((j & 1) == 0) {
+        while(j > 2) {
+            j = j - 2;
+        }
+        if(j == 2){
             c = 1;
         }
         else {
             c = 2;
         }
-        //behöver se om numret är udda eller jämnt
-        //if(j == i){
-          //  c = 1;
-        //}
-        //else{
-          //  c = 2;
-        //}
+
         return c;
     }
 
@@ -74,16 +73,16 @@ public class tictactoe {
 
     static String boardplan(int sizeI) {
 
-        String board = "";
+        StringBuilder board = new StringBuilder();
         int p = 0;
 
         for(int i = 0; i < sizeI; i++) {
             for(int o = 0; o < sizeI; o++) {
                 p++;
-                board += p + " ";
+                board.append(p).append(" ");
             }
-            board += "\n";
+            board.append("\n");
         }
-        return board;
+        return board.toString();
     }
 }
